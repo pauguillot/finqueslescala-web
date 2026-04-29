@@ -1,13 +1,17 @@
 /**
  * Cloudflare Pages Function — recull el formulari de pressupost
- * i envia un email a l'administrador via MailChannels.
+ * i envia un email a l'administrador via Resend.
  *
  * Endpoint: POST /api/pressupost
  *
  * Variables d'entorn que cal configurar al panell de Cloudflare Pages:
+ *   RESEND_API_KEY     → API key obtinguda a https://resend.com (comença per "re_")
  *   DESTINATARI_EMAIL  → email que rebrà les sol·licituds (ex: pauguillot@pauguillot.com)
- *   ORIGEN_EMAIL       → email "from" verificat (ex: web@finqueslescala.com)
- *   ORIGEN_NOM         → nom mostrat (ex: "Web finqueslescala.com")
+ *   ORIGEN_EMAIL       → email "from". Per defecte "onboarding@resend.dev" (Resend de prova,
+ *                        funciona només per enviar a l'email amb què t'has registrat a Resend).
+ *                        Quan tinguis el domini finqueslescala.com verificat a Resend
+ *                        (DNS DKIM + SPF), pots posar "web@finqueslescala.com".
+ *   ORIGEN_NOM         → nom mostrat al "From" (ex: "Web finqueslescala.com")
  */
 
 export async function onRequestPost({ request, env }) {
@@ -35,6 +39,13 @@ export async function onRequestPost({ request, env }) {
     return new Response("Camps massa llargs.", { status: 400 });
   }
 
+  if (!env.RESEND_API_KEY || !env.DESTINATARI_EMAIL) {
+    console.error("Falten variables d'entorn (RESEND_API_KEY, DESTINATARI_EMAIL).");
+    return new Response("Servei no configurat. Truca'm directament al 607 588 879.", {
+      status: 500,
+    });
+  }
+
   const ip = request.headers.get("CF-Connecting-IP") || "?";
   const ua = request.headers.get("User-Agent") || "?";
   const data = new Date().toISOString();
@@ -56,28 +67,29 @@ export async function onRequestPost({ request, env }) {
     `UA:   ${ua}`,
   ].join("\n");
 
+  const fromEmail = env.ORIGEN_EMAIL || "onboarding@resend.dev";
+  const fromName = env.ORIGEN_NOM || "Web finqueslescala.com";
+
   const payload = {
-    personalizations: [{
-      to: [{ email: env.DESTINATARI_EMAIL }],
-      reply_to: { email: email, name: nom },
-    }],
-    from: {
-      email: env.ORIGEN_EMAIL,
-      name: env.ORIGEN_NOM || "Web finqueslescala.com",
-    },
+    from: `${fromName} <${fromEmail}>`,
+    to: [env.DESTINATARI_EMAIL],
+    reply_to: `${nom} <${email}>`,
     subject: `[finqueslescala.com] Pressupost · ${servei} · ${nom}`,
-    content: [{ type: "text/plain", value: text }],
+    text: text,
   };
 
-  const resposta = await fetch("https://api.mailchannels.net/tx/v1/send", {
+  const resposta = await fetch("https://api.resend.com/emails", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+    },
     body: JSON.stringify(payload),
   });
 
   if (!resposta.ok) {
     const detall = await resposta.text();
-    console.error("MailChannels error:", resposta.status, detall);
+    console.error("Resend error:", resposta.status, detall);
     return new Response("No s'ha pogut enviar el missatge. Truca'm directament al 607 588 879.", {
       status: 502,
     });

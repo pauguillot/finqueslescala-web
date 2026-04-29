@@ -30,9 +30,10 @@ A "Settings → Environment variables" del projecte:
 
 | Variable | Valor |
 |----------|-------|
+| `RESEND_API_KEY`    | API key obtinguda a <https://resend.com> (comença per `re_`) |
 | `DESTINATARI_EMAIL` | `pauguillot@pauguillot.com` |
-| `ORIGEN_EMAIL`     | `web@finqueslescala.com` (cal verificar al DNS, vegeu pas 4) |
-| `ORIGEN_NOM`       | `Web finqueslescala.com` |
+| `ORIGEN_EMAIL`      | `onboarding@resend.dev` (per defecte) o `web@finqueslescala.com` quan el domini estigui verificat (DNS DKIM/SPF) |
+| `ORIGEN_NOM`        | `Web finqueslescala.com` |
 
 ### 3 · Connectar el domini finqueslescala.com
 
