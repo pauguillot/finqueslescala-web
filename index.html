@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pau Guillot Finques — Administrador de finques col·legiat a L'Escala. Comunitats de propietaris, assegurances, vendes i lloguers.">
+  <title>Pau Guillot Finques · Administrador de finques · L'Escala</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="#" aria-label="Pau Guillot Finques">
+        <img src="assets/logo-light.svg" alt="Pau Guillot Finques">
+      </a>
+      <nav class="site-header__nav">
+        <a href="#serveis">Serveis</a>
+        <a href="#filosofia">Com treballo</a>
+        <a href="#contacte">Contacte</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Administrador de finques col·legiat · n. 763</p>
+        <h1>Gestió de finques a L'Escala, amb mètode i a peu de carrer.</h1>
+        <p class="hero__lead">
+          Despatx propi al centre de L'Escala. Comunitats de propietaris,
+          assegurances, vendes i lloguers — sota una mateixa porta.
+        </p>
+        <a class="hero__cta" href="#contacte">Sol·licitar pressupost →</a>
+      </div>
+    </section>
+
+    <section class="section" id="serveis">
+      <div class="section__inner">
+        <p class="section__heading">Serveis</p>
+        <h2>Quatre activitats sota una mateixa administració.</h2>
+
+        <div class="serveis">
+          <article class="servei">
+            <h3>Comunitats de propietaris</h3>
+            <p>
+              Administració integral de comunitats de veïns: comptabilitat,
+              juntes, manteniments, assegurances i seguiment continu.
+            </p>
+            <p class="servei__credencial">
+              Administrador de Finques col·legiat · CAFGI núm. 763
+            </p>
+          </article>
+
+          <article class="servei">
+            <h3>Assegurances</h3>
+            <p>
+              Assessorament i gestió d'assegurances de comunitat, llar i
+              negoci. Tramitació de sinistres i renovacions.
+            </p>
+            <p class="servei__credencial">
+              Mediador vinculat d'assegurances · CMAG núm. 77464
+            </p>
+          </article>
+
+          <article class="servei">
+            <h3>Vendes</h3>
+            <p>
+              Acompanyament en operacions de compravenda d'immobles a
+              L'Escala i comarca: certificats, escriptures, transmissions.
+            </p>
+            <p class="servei__credencial">
+              Inscrit al Registre d'Agents Immobiliaris de Catalunya · AICAT núm. 4876
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="filosofia">
+      <div class="section__inner filosofia">
+        <p class="section__heading">Com treballo</p>
+        <h2>Una persona, un mètode, una manera de fer.</h2>
+
+        <p>
+          Diplomat en Administració i Direcció d'Empreses. Dues
+          col·legiacions i una inscripció al registre oficial per a
+          tres activitats — perquè cada una té les seves regles i
+          les vull respectar totes.
+        </p>
+        <p>
+          Cada comunitat és diferent. La meva feina és entendre la seva
+          realitat, no aplicar plantilles.
+        </p>
+        <p>
+          Procuro que cap factura entri a comptabilitat sense ser
+          revisada, cap acta surti sense haver estat repassada amb el
+          president, cap remesa s'enviï sense quadrar al cèntim. Quan
+          es comet un error — perquè es comet — es corregeix de seguida
+          i s'aprèn.
+        </p>
+        <p>
+          Cada propietari té accés al seu compte en qualsevol moment.
+          Tancament anual amb informe complet. Auditoria a petició.
+        </p>
+        <p>
+          L'oficina obre al matí per a les visites en persona. La resta
+          del dia és el temps en què avanço els vostres assumptes —
+          atenent missatges, correus i WhatsApp segons criteri, no
+          per inèrcia. Avui hi ha connexió de sobres; el que cal
+          protegir és la concentració.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="contacte">
+      <div class="section__inner">
+        <p class="section__heading">Contacte</p>
+        <h2>Sol·licita un pressupost.</h2>
+
+        <form class="pressupost-form" action="/api/pressupost" method="post">
+          <div class="pressupost-form__row">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" name="nom" required autocomplete="name">
+          </div>
+
+          <div class="pressupost-form__row pressupost-form__row--split">
+            <div>
+              <label for="email">Correu electrònic</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div>
+              <label for="telefon">Telèfon (opcional)</label>
+              <input type="tel" id="telefon" name="telefon" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="pressupost-form__row">
+            <label for="servei">Quin servei t'interessa?</label>
+            <select id="servei" name="servei" required>
+              <option value="">— Tria una opció —</option>
+              <option value="comunitat">Comunitat de propietaris</option>
+              <option value="assegurances">Assegurances</option>
+              <option value="vendes">Vendes</option>
+              <option value="altre">Altre</option>
+            </select>
+          </div>
+
+          <div class="pressupost-form__row">
+            <label for="missatge">Missatge</label>
+            <textarea id="missatge" name="missatge" rows="5" required
+                      placeholder="Explica breument la teva situació: nombre de propietaris, ubicació de l'immoble, motiu de la consulta…"></textarea>
+          </div>
+
+          <label class="pressupost-form__consent">
+            <input type="checkbox" name="consentiment" value="1" required>
+            <span>
+              He llegit i accepto la
+              <a href="privacitat.html" target="_blank">política de privacitat</a>
+              i autoritzo el tractament de les meves dades per a la finalitat indicada.
+            </span>
+          </label>
+
+          <button type="submit" class="pressupost-form__submit">
+            Enviar sol·licitud →
+          </button>
+        </form>
+
+        <div class="contacte-divider"></div>
+
+        <h3 class="contacte__subtitol">O contacta directament</h3>
+
+        <div class="contacte">
+          <div class="contacte__bloc">
+            <h3>Adreça</h3>
+            <p>Avinguda de Riells, 40</p>
+            <p>17130 L'Escala</p>
+            <p>Girona</p>
+          </div>
+
+          <div class="contacte__bloc">
+            <h3>Telèfon</h3>
+            <a class="mono" href="tel:+34607588879">607 588 879</a>
+            <a class="mono" href="tel:+34972776143">972 776 143</a>
+          </div>
+
+          <div class="contacte__bloc">
+            <h3>Correu electrònic</h3>
+            <a href="mailto:pauguillot@pauguillot.com">pauguillot@pauguillot.com</a>
+          </div>
+
+          <div class="contacte__bloc">
+            <h3>Atenció al públic</h3>
+            <p>Dimarts a dissabte · 9 — 13 h</p>
+            <p>Diumenge · 10 — 13 h</p>
+            <p>Dilluns tancat</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <img src="assets/logo.svg" alt="Pau Guillot Finques">
+        <p>Administrador de finques col·legiat núm. 763</p>
+        <p>Col·legi d'Administradors de Finques de Girona (CAFGI)</p>
+      </div>
+      <div>
+        <p>Avinguda de Riells, 40 · 17130 L'Escala</p>
+        <p>607 588 879 · 972 776 143</p>
+        <p><a href="mailto:pauguillot@pauguillot.com">pauguillot@pauguillot.com</a></p>
+        <br>
+        <small>© 2026 Pau Guillot Puig · <a href="avis-legal.html">Avís legal</a> · <a href="privacitat.html">Política de privacitat</a></small>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+# Sistema operatiu
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs i temporals
+*.log
+.tmp/
+
+# Secrets (no n'hi hauria d'haver però per si de cas)
+.env
+.env.local
+*.key
+*.pem
+
+# Cloudflare local dev (si algun dia s'instal·la wrangler)
+.wrangler/
+node_modules/

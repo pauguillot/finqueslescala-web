@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Guillot Finques icon">
+  <title>Guillot Finques — icona</title>
+  <rect width="240" height="240" rx="28" fill="#000058"/>
+  <g fill="#ffffff">
+    <circle cx="30"  cy="168" r="9"/>
+    <circle cx="60"  cy="168" r="9"/>
+    <circle cx="90"  cy="168" r="9"/>
+    <circle cx="120" cy="168" r="9"/>
+    <circle cx="150" cy="168" r="9"/>
+    <circle cx="180" cy="168" r="9"/>
+    <circle cx="210" cy="168" r="9"/>
+    <circle cx="60"  cy="138" r="9"/>
+    <circle cx="90"  cy="138" r="9"/>
+    <circle cx="120" cy="138" r="9"/>
+    <circle cx="150" cy="138" r="9"/>
+    <circle cx="180" cy="138" r="9"/>
+    <circle cx="90"  cy="108" r="9"/>
+    <circle cx="120" cy="108" r="9"/>
+    <circle cx="150" cy="108" r="9"/>
+  </g>
+  <circle cx="120" cy="78" r="9" fill="#c5ec4d"/>
+</svg>

@@ -1,0 +1,561 @@
+/* ============================================================
+   finqueslescala.com — v0
+   Hereta tokens del sistema de marca PGF.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --navy:        #000058;
+  --navy-deep:   #00003a;
+  --navy-light:  #0a0a6e;
+  --lime:        #c5ec4d;
+  --lime-print:  #a8cf28;
+
+  --white:       #ffffff;
+  --off-white:   #f8f9fc;
+  --gray-50:     #f4f5f9;
+  --gray-100:    #e8eaf0;
+  --gray-200:    #d1d5e0;
+  --gray-400:    #8b92a8;
+  --gray-600:    #4a5068;
+  --gray-800:    #1e2235;
+
+  --font-sans:   'DM Sans', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:   'DM Mono', 'Menlo', 'Consolas', monospace;
+
+  --max-w:       1100px;
+  --gutter:      1.5rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--gray-800);
+  background: var(--white);
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gray-200);
+  transition: border-color .15s ease;
+}
+a:hover { border-bottom-color: var(--navy); }
+
+h1, h2, h3 {
+  font-family: var(--font-sans);
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.mono { font-family: var(--font-mono); }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0.875rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header__logo {
+  border-bottom: none;
+  line-height: 0;
+}
+
+.site-header__logo img {
+  height: 43px;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .site-header__logo img { height: 31px; }
+}
+
+
+.site-header__nav {
+  display: flex;
+  gap: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.site-header__nav a {
+  color: var(--gray-600);
+  border-bottom: none;
+  font-weight: 500;
+}
+.site-header__nav a:hover { color: var(--navy); }
+
+@media (max-width: 640px) {
+  .site-header__nav { display: none; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 6rem var(--gutter) 5rem;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.hero__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.hero__eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lime-print);
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin-bottom: 1.25rem;
+  max-width: 24ch;
+}
+
+.hero__lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: var(--gray-600);
+  max-width: 60ch;
+  margin-bottom: 2rem;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 4px;
+  border-bottom: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background .15s ease;
+}
+.hero__cta:hover { background: var(--navy-light); border-bottom: none; }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section {
+  padding: 5rem var(--gutter);
+}
+
+.section--alt {
+  background: var(--off-white);
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.section__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.section__heading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 0.75rem;
+}
+
+.section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 2.5rem;
+  max-width: 30ch;
+}
+
+/* ============================================================
+   SERVEIS (grid)
+   ============================================================ */
+.serveis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.servei {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 6px;
+  padding: 1.75rem;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.servei:hover {
+  border-color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.servei h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+}
+
+.servei p {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+}
+
+.servei__marca {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--lime-print);
+  border-bottom: none;
+}
+
+.servei__credencial {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--gray-100);
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   FILOSOFIA
+   ============================================================ */
+.filosofia p {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--gray-800);
+  max-width: 52ch;
+  margin-bottom: 1.5rem;
+}
+
+.filosofia p:last-child { margin-bottom: 0; }
+
+/* ============================================================
+   CONTACTE
+   ============================================================ */
+.contacte {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.contacte__bloc h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 0.75rem;
+}
+
+.contacte__bloc p,
+.contacte__bloc a {
+  font-size: 1.05rem;
+  color: var(--gray-800);
+  display: block;
+  border-bottom: none;
+}
+
+.contacte__bloc a:hover { color: var(--navy); }
+
+.contacte__bloc .mono { font-family: var(--font-mono); font-size: 1rem; }
+
+/* ============================================================
+   FORMULARI PRESSUPOST
+   ============================================================ */
+.pressupost-form {
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.pressupost-form__row {
+  margin-bottom: 1.25rem;
+}
+
+.pressupost-form__row--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 540px) {
+  .pressupost-form__row--split { grid-template-columns: 1fr; }
+}
+
+.pressupost-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 0.4rem;
+}
+
+.pressupost-form input,
+.pressupost-form select,
+.pressupost-form textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--gray-800);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 4px;
+  padding: 0.7rem 0.85rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.pressupost-form input:focus,
+.pressupost-form select:focus,
+.pressupost-form textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(0, 0, 88, 0.1);
+}
+
+.pressupost-form textarea {
+  resize: vertical;
+  font-family: var(--font-sans);
+}
+
+.pressupost-form__submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.pressupost-form__submit:hover { background: var(--navy-light); }
+
+.contacte-divider {
+  border-top: 1px solid var(--gray-100);
+  margin: 3rem 0 2.5rem;
+}
+
+.contacte__subtitol {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   PÀGINES LEGALS
+   ============================================================ */
+.legal {
+  padding: 4rem var(--gutter) 5rem;
+}
+
+.legal__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.legal h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 0.5rem;
+}
+
+.legal__lead {
+  color: var(--gray-600);
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+
+.legal h2 {
+  font-size: 1.2rem;
+  margin: 2.5rem 0 0.75rem;
+  color: var(--navy);
+}
+
+.legal h3 {
+  font-size: 1rem;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.legal p, .legal ul, .legal ol {
+  margin-bottom: 1rem;
+  color: var(--gray-800);
+  font-size: 0.95rem;
+}
+
+.legal ul, .legal ol {
+  padding-left: 1.5rem;
+}
+
+.legal ul li, .legal ol li {
+  margin-bottom: 0.4rem;
+}
+
+.legal a {
+  color: var(--navy);
+  border-bottom-color: var(--gray-200);
+}
+
+.legal__back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  border-bottom: none;
+}
+.legal__back:hover { color: var(--navy); }
+
+/* ============================================================
+   PÀGINA GRÀCIES
+   ============================================================ */
+.gracies {
+  padding: 6rem var(--gutter);
+  text-align: center;
+}
+
+.gracies__inner {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.gracies h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 1rem;
+}
+
+.gracies p {
+  color: var(--gray-600);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   FORM CONSENTIMENT RGPD
+   ============================================================ */
+.pressupost-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.pressupost-form__consent input[type="checkbox"] {
+  width: auto;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  accent-color: var(--navy);
+}
+
+.pressupost-form__consent a {
+  color: var(--navy);
+}
+
+/* ============================================================
+   MAPA
+   ============================================================ */
+.mapa {
+  margin-top: 3rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--gray-50);
+}
+
+.mapa iframe {
+  display: block;
+  width: 100%;
+  height: 360px;
+  border: 0;
+}
+
+.mapa__link {
+  display: block;
+  text-align: right;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  border-bottom: none;
+  background: var(--white);
+  border-top: 1px solid var(--gray-100);
+}
+.mapa__link:hover { color: var(--navy); }
+
+@media (max-width: 640px) {
+  .mapa iframe { height: 280px; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--navy);
+  color: var(--gray-200);
+  padding: 3rem var(--gutter) 2rem;
+  font-size: 0.9rem;
+}
+
+.site-footer__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .site-footer__inner { grid-template-columns: 1fr; }
+}
+
+.site-footer img {
+  height: 56px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.site-footer p { color: var(--gray-200); margin-bottom: 0.4rem; }
+.site-footer small { color: var(--gray-400); }
+
+.site-footer a { color: var(--lime); border-bottom-color: transparent; }
+.site-footer a:hover { border-bottom-color: var(--lime); }
