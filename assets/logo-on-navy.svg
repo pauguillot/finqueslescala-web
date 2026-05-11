@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 900 102" role="img" aria-label="Pau Guillot Finques L'Escala">
+  <title>Pau Guillot Finques L'Escala</title>
+  <defs>
+    <style>
+      .wordmark { font-family: 'DM Sans', 'Inter', 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+  <g fill="#ffffff">
+    <circle cx="70"  cy="140" r="7"/>
+    <circle cx="96"  cy="140" r="7"/>
+    <circle cx="122" cy="140" r="7"/>
+    <circle cx="148" cy="140" r="7"/>
+    <circle cx="174" cy="140" r="7"/>
+    <circle cx="200" cy="140" r="7"/>
+    <circle cx="226" cy="140" r="7"/>
+    <circle cx="96"  cy="114" r="7"/>
+    <circle cx="122" cy="114" r="7"/>
+    <circle cx="148" cy="114" r="7"/>
+    <circle cx="174" cy="114" r="7"/>
+    <circle cx="200" cy="114" r="7"/>
+    <circle cx="122" cy="88"  r="7"/>
+    <circle cx="148" cy="88"  r="7"/>
+    <circle cx="174" cy="88"  r="7"/>
+  </g>
+  <circle cx="148" cy="62" r="7" fill="#c5ec4d"/>
+  <text x="280" y="100" class="wordmark"
+        font-weight="800" font-size="64" letter-spacing="6" fill="#ffffff">GUILLOT</text>
+  <text x="280" y="148" class="wordmark"
+        font-weight="600" font-size="24" letter-spacing="5" fill="#ffffff">
+    <tspan fill="#c5ec4d">FINQUES</tspan><tspan dx="10">·</tspan><tspan dx="10">L'ESCALA</tspan>
+  </text>
+</svg>

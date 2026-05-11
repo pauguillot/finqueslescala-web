@@ -67,8 +67,8 @@ h1, h2, h3 {
    HEADER
    ============================================================ */
 .site-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-100);
+  background: var(--navy);
+  border-bottom: 1px solid var(--navy-deep);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -105,11 +105,11 @@ h1, h2, h3 {
 }
 
 .site-header__nav a {
-  color: var(--gray-600);
+  color: var(--gray-200);
   border-bottom: none;
   font-weight: 500;
 }
-.site-header__nav a:hover { color: var(--navy); }
+.site-header__nav a:hover { color: var(--lime); }
 
 @media (max-width: 640px) {
   .site-header__nav { display: none; }
