@@ -34,6 +34,21 @@ A "Settings → Environment variables" del projecte:
 | `DESTINATARI_EMAIL` | `pauguillot@pauguillot.com` |
 | `ORIGEN_EMAIL`      | `onboarding@resend.dev` (per defecte) o `web@finqueslescala.com` quan el domini estigui verificat (DNS DKIM/SPF) |
 | `ORIGEN_NOM`        | `Web finqueslescala.com` |
+| `TURNSTILE_SECRET`  | Secret key de Cloudflare Turnstile (veure secció Anti-spam) |
+
+### Anti-spam — tres capes
+
+El formulari incorpora tres defenses contra bots (totes implementades a `functions/api/pressupost.js`):
+
+1. **Honeypot** (camp `website` ocult): els bots l'omplen perquè veuen `<input name="website">`. Els humans no el veuen. Si arriba omplert, descartem la sol·licitud silenciosament (retornem `gracies.html` perquè el bot no aprengui).
+2. **Validació de contingut**: rebutja missatges amb caràcters ciríl·lics o més de 2 URLs (patró típic de l'spam SEO rus).
+3. **Cloudflare Turnstile**: CAPTCHA invisible de Cloudflare, gratuït. Cal configurar-lo:
+   - Anar a <https://dash.cloudflare.com/> → Turnstile → Add Site
+   - Domini: `finqueslescala.com`
+   - Mode: **Managed** (recomanat)
+   - Copiar el **Site Key** → editar `index.html` i substituir `0x4AAAAAAA_REPLACE_WITH_SITEKEY` pel valor real
+   - Copiar el **Secret Key** → afegir-lo com a variable d'entorn `TURNSTILE_SECRET` al panell de Pages
+   - Si no es configura `TURNSTILE_SECRET`, la verificació es salta (les capes 1 i 2 continuen actives).
 
 ### 3 · Connectar el domini finqueslescala.com
 

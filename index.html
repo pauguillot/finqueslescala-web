@@ -179,10 +179,18 @@
             </span>
           </label>
 
+          <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+            <label for="website">No omplis aquest camp</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="cf-turnstile" data-sitekey="0x4AAAAADNUIH3L6yW5ZSSy"></div>
+
           <button type="submit" class="pressupost-form__submit">
             Enviar sol·licitud →
           </button>
         </form>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
         <div class="contacte-divider"></div>
 
