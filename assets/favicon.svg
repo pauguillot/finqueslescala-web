@@ -3,21 +3,25 @@
   <title>Guillot Finques — icona</title>
   <rect width="240" height="240" rx="28" fill="#000058"/>
   <g fill="#ffffff">
-    <circle cx="30"  cy="168" r="9"/>
-    <circle cx="60"  cy="168" r="9"/>
-    <circle cx="90"  cy="168" r="9"/>
-    <circle cx="120" cy="168" r="9"/>
-    <circle cx="150" cy="168" r="9"/>
-    <circle cx="180" cy="168" r="9"/>
-    <circle cx="210" cy="168" r="9"/>
-    <circle cx="60"  cy="138" r="9"/>
-    <circle cx="90"  cy="138" r="9"/>
-    <circle cx="120" cy="138" r="9"/>
-    <circle cx="150" cy="138" r="9"/>
-    <circle cx="180" cy="138" r="9"/>
-    <circle cx="90"  cy="108" r="9"/>
-    <circle cx="120" cy="108" r="9"/>
-    <circle cx="150" cy="108" r="9"/>
+    <!-- Fila base (7 cercles) -->
+    <circle cx="30"  cy="210" r="9"/>
+    <circle cx="60"  cy="210" r="9"/>
+    <circle cx="90"  cy="210" r="9"/>
+    <circle cx="120" cy="210" r="9"/>
+    <circle cx="150" cy="210" r="9"/>
+    <circle cx="180" cy="210" r="9"/>
+    <circle cx="210" cy="210" r="9"/>
+    <!-- Fila +1 (5 cercles) -->
+    <circle cx="60"  cy="150" r="9"/>
+    <circle cx="90"  cy="150" r="9"/>
+    <circle cx="120" cy="150" r="9"/>
+    <circle cx="150" cy="150" r="9"/>
+    <circle cx="180" cy="150" r="9"/>
+    <!-- Fila +2 (3 cercles) -->
+    <circle cx="90"  cy="90" r="9"/>
+    <circle cx="120" cy="90" r="9"/>
+    <circle cx="150" cy="90" r="9"/>
   </g>
-  <circle cx="120" cy="78" r="9" fill="#c5ec4d"/>
+  <!-- Cim (1 cercle lime) -->
+  <circle cx="120" cy="30" r="9" fill="#c5ec4d"/>
 </svg>
